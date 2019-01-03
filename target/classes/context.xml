@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd">
+
+	<!-- The below tag is for Annotation - Comment Bean tags to use Annotation -->
+	<!-- <context:component-scan base-package="com.capgemini.app"/> -->
+	<context:property-placeholder location="classpath:address.properties"/>
+
+	<util:set id="cities">
+		<value>Mumbai</value>
+		<value>Pune</value>
+		<value>Thane</value>
+		<value>Nagpur</value>
+		<value>Hydrabad</value>
+	</util:set>
+	
+	<util:map id="branchManagers">
+		<entry key="Mumbai" value="Ujwala"/>
+		<entry key="Hydrabad" value="Prasanth"/>	
+	</util:map>
+	
+	<util:list id="boardMembers">
+		<value>Atul</value>
+		<value>Mrudula</value>
+	</util:list>
+	
+	<!-- <bean id="dateFormater" class="java.text.SimpleDateFormat">
+        <constructor-arg value="dd-MM-yyyy" />
+    </bean> -->
+	
+	<bean id="organization" class="com.capgemini.app.bean.Organization">
+		<property name="boardMembers" ref="boardMembers"></property>
+		<property name="branchManagers" ref="branchManagers"></property>
+		<property name="cities" ref="cities"></property>
+		<property name="dateOfEstablishment">
+			<bean class="java.time.LocalDate" factory-method="now">
+            </bean>
+		</property>
+		<property name="ipAddresses" value="${ipAddress}"></property>
+		<property name="listed">
+			<value>true</value>
+		</property>
+		<property name="name" value="Capgemini"></property>
+		<property name="orgId" value="101"></property>
+		<property name="shareValue" value="544.22"></property>
+	</bean>
+	
+	
+	
+	<!-- <bean id="organization2" class="com.capgemini.app.bean.Organization">
+		<constructor-arg value="102"/>
+		<constructor-arg value="CKIP"/>
+	</bean> -->
+	
+</beans>
+
+
+
+
+
