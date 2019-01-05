@@ -29,6 +29,8 @@
 		<value>Mrudula</value>
 	</util:list>
 	
+	
+	
 	<!-- <bean id="dateFormater" class="java.text.SimpleDateFormat">
         <constructor-arg value="dd-MM-yyyy" />
     </bean> -->
@@ -38,7 +40,10 @@
 		<property name="branchManagers" ref="branchManagers"></property>
 		<property name="cities" ref="cities"></property>
 		<property name="dateOfEstablishment">
-			<bean class="java.time.LocalDate" factory-method="now">
+			<bean class="java.time.LocalDate" factory-method="of">
+				<constructor-arg value="2016"/>
+				<constructor-arg value="09"/>
+				<constructor-arg value="12"/>
             </bean>
 		</property>
 		<property name="ipAddresses" value="${ipAddress}"></property>

@@ -6,6 +6,9 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
 
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
+
 public class Organization {
 	private int orgId;
 	private String name;
@@ -56,9 +59,11 @@ public class Organization {
 	public void setBranchManagers(Map<String, String> branchManagers) {
 		this.branchManagers = branchManagers;
 	}
+	
 	public LocalDate getDateOfEstablishment() {
 		return dateOfEstablishment;
 	}
+	
 	public void setDateOfEstablishment(LocalDate dateOfEstablishment) {
 		this.dateOfEstablishment = dateOfEstablishment;
 	}
